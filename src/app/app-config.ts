@@ -16,7 +16,7 @@ export class AppConfig {
     public apiPort:string = "9119";
     public apiProtocol:string;
     public apiHostName:string;
-    public baseApiPath:string;
+    public baseApiPath:string= "http://localhost:9119/hackathon/api/";
 
     constructor(){
         if (this.apiProtocol===undefined){
@@ -31,9 +31,9 @@ export class AppConfig {
         if (this.apiHostName.includes("infomud") || this.apiHostName.includes("heroku")){
             this.baseApiPath = this.apiProtocol + "//" + this.apiHostName + "/";
         }
-        else{
+        /*else{
             this.baseApiPath = this.apiProtocol + "//" + this.apiHostName + ":" + this.apiPort +"/";
-        }
+        }*/
         if (this.locale===undefined){
             this.locale = navigator.language;
         }
