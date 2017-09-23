@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import * as Stomp from 'stompjs';
+import * as SockJS from 'sockjs-client';
+import { StompService } from 'ng2-stomp-service';
 
 @Component({
   templateUrl: 'dashboard.component.html'
@@ -7,23 +10,55 @@ import { Router } from '@angular/router';
 export class DashboardComponent implements OnInit {
 
 
-  public connectWebSocket(){
-   /* let socket = new SockJS('http://localhost:8080/hackathon/newsNotif');
+  private subscription : any;
+  constructor(stomp: StompService) {
+    
+
+    var socket = new SockJS('http://localhost:8080/hackathon/chat');
     let stompClient = Stomp.over(socket);  
     
     stompClient.connect({}, function(frame) {
         
+
         console.log('Connected: ' + frame);
         stompClient.subscribe('/topic/messages', function(messageOutput) {
-           console.log(messageOutput.body);
+            
+            console.log(messageOutput);
         });
-    });*/
-  }
+    });
 
+/*
+      //configuration
+      stomp.configure({
+        host:'http://localhost:8080/hackathon/newsNostif',
+        debug:true,
+        queue:{'init':false}
+      });
+      
+      
+      //start connection
+      stomp.startConnect().then(() => {
+        stomp.done('init');
+        console.log('connected');
+        //subscribe
+        this.subscription = stomp.subscribe('/topic/chart/1', this.response);
+        //send data
+        stomp.send('/topic/chart/3',{"data":"data"});
+        //unsubscribe
+        this.subscription.unsubscribe();
+        //disconnect
+        stomp.disconnect().then(() => {
+          console.log( 'Connection closed' )
+        })
+      });*/
+    
+    }
+    
+    //response
+    public response = (data) => {
+      console.log(data)
+    }
 
-   constructor( ) { 
-     this.connectWebSocket();
-  }
 
   public brandPrimary = '#20a8d8';
   public brandSuccess = '#4dbd74';
