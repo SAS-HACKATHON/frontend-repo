@@ -6,7 +6,24 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
-  // constructor( ) { }
+
+  public connectWebSocket(){
+   /* let socket = new SockJS('http://localhost:8080/hackathon/newsNotif');
+    let stompClient = Stomp.over(socket);  
+    
+    stompClient.connect({}, function(frame) {
+        
+        console.log('Connected: ' + frame);
+        stompClient.subscribe('/topic/messages', function(messageOutput) {
+           console.log(messageOutput.body);
+        });
+    });*/
+  }
+
+
+   constructor( ) { 
+     this.connectWebSocket();
+  }
 
   public brandPrimary = '#20a8d8';
   public brandSuccess = '#4dbd74';
