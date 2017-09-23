@@ -17,9 +17,12 @@ export class ProfileComponent implements OnInit {
     this.sub = this.route.params.subscribe(params => {
       this.userIDO = params['id'];
     });
-    if (!isNaN(+this.userIDO)) {
-      this.userID += +this.userIDO;
+    if (!isNaN(+this.userIDO) && +this.userIDO) {
+      this.userID = +this.userIDO;
     }
+    else{
+      console.log('redirect to 404 later');
+  }
   }
 
 }
