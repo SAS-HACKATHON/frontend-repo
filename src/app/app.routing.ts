@@ -7,7 +7,7 @@ import {
   SimpleLayout
 } from './containers';
 import { AuthGuard } from 'app/services/auth_guard.service';
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+/* import { LocationStrategy, HashLocationStrategy } from '@angular/common'; */
 
 export const routes: Routes = [
   {
@@ -42,7 +42,19 @@ export const routes: Routes = [
       {
         path: 'charts',
         loadChildren: './views/chartjs/chartjs.module#ChartJSModule'
-      }
+      },{
+        path: 'sofnews',
+        loadChildren: './views/sofnews/sofnews.module#SofnewsModule'
+      },{
+        path: 'softech',
+        loadChildren: './views/softech/softech.module#SoftechModule'
+      },{
+        path: 'sofhello',
+        loadChildren: './views/sofhello/sofhello.module#SofhelloModule'
+      },{
+        path: 'sofevents',
+        loadChildren: './views/sofevents/sofevents.module#SofeventsModule'
+      },
     ]
   },
   {
@@ -64,10 +76,10 @@ export const routes: Routes = [
   imports: [ RouterModule.forRoot(routes) ],
   exports: [ RouterModule ],
   providers: [
-    AuthGuard,
+    AuthGuard/* ,
     {
       provide: LocationStrategy,
       useClass: HashLocationStrategy
-    }],
+    } */],
 })
 export class AppRoutingModule {}
