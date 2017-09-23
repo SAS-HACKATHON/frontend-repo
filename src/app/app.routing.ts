@@ -54,6 +54,9 @@ export const routes: Routes = [
       },{
         path: 'sofevents',
         loadChildren: './views/sofevents/sofevents.module#SofeventsModule'
+      },{
+        path: 'user',
+        loadChildren: './views/userprofile/userprofile.module#UserprofileModule'
       },
     ]
   },
