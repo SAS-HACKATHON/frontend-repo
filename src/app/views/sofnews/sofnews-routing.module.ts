@@ -3,6 +3,7 @@ import { Routes,
      RouterModule } from '@angular/router';
 
 import { SofnewsComponent } from './sofnews.component';
+import { SofnewsAddComponent } from './add/sofnews.add.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,10 @@ const routes: Routes = [
     data: {
       title: 'Sof\'News'
     }
+  },
+  {
+    path : 'add',
+    component: SofnewsAddComponent,
   }
 ];
 

@@ -28,7 +28,7 @@ export class ProfileComponent implements OnInit {
 
     this.pushNotificationsService.requestPermission();
 
-    this.pushNotificationsService.create('Test', {body: 'something'}).subscribe(
+    this.pushNotificationsService.create('Test', {body: 'something11'}).subscribe(
       res => console.log(res),
       err => console.log(err)
   )
