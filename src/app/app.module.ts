@@ -57,15 +57,15 @@ import { AppRoutingModule } from './app.routing';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
-import { UserInfoService } from 'app/services/user-info.service';
-import { TranslateService } from 'app/services/api/translate.service';
-import { ApiRequestService } from 'app/services/api/api-request.service';
-import { LoginService } from 'app/services/api/login.service';
-import { OrderService } from 'app/services/api/order.service';
-import { ProductService } from 'app/services/api/product.service';
-import { CustomerService } from 'app/services/api/customer.service';
-import { EmployeeService } from 'app/services/api/employee.service';
-import { AppConfig } from 'app/app-config';
+import { UserInfoService } from '../app/services/user-info.service';
+import { TranslateService } from '../app/services/api/translate.service';
+import { ApiRequestService } from '../app/services/api/api-request.service';
+import { LoginService } from '../app/services/api/login.service';
+import { OrderService } from '../app/services/api/order.service';
+import { ProductService } from '../app/services/api/product.service';
+import { CustomerService } from '../app/services/api/customer.service';
+import { EmployeeService } from '../app/services/api/employee.service';
+import { AppConfig } from '../app/app-config';
 
 @NgModule({
   imports: [
