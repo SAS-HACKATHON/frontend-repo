@@ -17,7 +17,8 @@ export class AppConfig {
     public apiProtocol:string;
     public apiHostName:string;
     public baseApiPath:string= "http://localhost:8080/hackathon/api";
-
+    // "http://hackathon-hackathon.193b.starter-ca-central-1.openshiftapps.com/hackathon/api";
+	//
     constructor(){
         if (this.apiProtocol===undefined){
             this.apiProtocol = window.location.protocol;
