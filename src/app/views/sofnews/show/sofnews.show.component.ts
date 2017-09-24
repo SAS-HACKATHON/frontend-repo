@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ArticleService } from '../../../services/api/article.service';
 
 
@@ -11,7 +11,20 @@ import { ArticleService } from '../../../services/api/article.service';
 export class SofnewsShowComponent {
 
 
-  constructor() { 
+  articleID: number;
+  private sub: any;
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute) {
+    this.sub = this.route.params.subscribe(params => {
+      this.articleID = +params['id'];
+    });
+
+    console.log(this.articleID + 'hfdhrfthjsfjn,dsfjyfdjfsigtdsryq_gde_u');
+
   }
+
+
+
 
 }

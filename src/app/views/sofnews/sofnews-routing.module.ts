@@ -19,7 +19,7 @@ const routes: Routes = [
     component: SofnewsAddComponent,
   },
   {
-    path : 'show',
+    path : 'show/:id',
     component: SofnewsShowComponent,
   }
 ];
