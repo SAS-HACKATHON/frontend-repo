@@ -17,6 +17,7 @@ export class AppConfig {
     public apiProtocol:string;
     public apiHostName:string;
     public baseApiPath:string= "http://localhost:8080/hackathon/api";
+    public baseApiPathWebSocket:string= "ws://localhost:8080/hackathon/";
 
     constructor(){
         if (this.apiProtocol===undefined){
