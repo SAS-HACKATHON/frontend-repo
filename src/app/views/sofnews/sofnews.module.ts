@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { SofnewsComponent } from './sofnews.component';
+import { SofnewsAddComponent } from './add/sofnews.add.component';
 import { CommonModule } from '@angular/common';
 import { SofnewsRoutingModule } from './sofnews-routing.module';
 
@@ -8,8 +9,8 @@ import { SofnewsRoutingModule } from './sofnews-routing.module';
   imports: [
     SofnewsRoutingModule,
     ChartsModule,
-    CommonModule  
+    CommonModule
   ],
-  declarations: [ SofnewsComponent ]
+  declarations: [ SofnewsComponent, SofnewsAddComponent ]
 })
 export class SofnewsModule { }

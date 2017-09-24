@@ -4,9 +4,11 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
+import { PushNotificationsModule } from 'angular2-notifications';
 
 @NgModule({
   imports: [
+    PushNotificationsModule,
     DashboardRoutingModule,
     ChartsModule,
     BsDropdownModule

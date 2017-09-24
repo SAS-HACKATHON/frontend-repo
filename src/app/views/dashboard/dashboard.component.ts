@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import * as Stomp from 'stompjs';
-import * as SockJS from 'sockjs-client';
-import { StompService } from 'ng2-stomp-service';
+import {$WebSocket, WebSocketSendMode} from 'angular2-websocket/angular2-websocket';
+import { PushNotificationsService } from 'angular2-notifications';
 
 @Component({
   templateUrl: 'dashboard.component.html'
@@ -10,55 +9,30 @@ import { StompService } from 'ng2-stomp-service';
 export class DashboardComponent implements OnInit {
 
 
-  private subscription : any;
-  constructor(stomp: StompService) {
-    
+  private ws : any;
+  public counter = 0;
 
-    var socket = new SockJS('http://localhost:8080/hackathon/chat');
-    let stompClient = Stomp.over(socket);  
-    
-    stompClient.connect({}, function(frame) {
-        
-
-        console.log('Connected: ' + frame);
-        stompClient.subscribe('/topic/messages', function(messageOutput) {
-            
-            console.log(messageOutput);
-        });
-    });
-
-/*
-      //configuration
-      stomp.configure({
-        host:'http://localhost:8080/hackathon/newsNostif',
-        debug:true,
-        queue:{'init':false}
-      });
-      
-      
-      //start connection
-      stomp.startConnect().then(() => {
-        stomp.done('init');
-        console.log('connected');
-        //subscribe
-        this.subscription = stomp.subscribe('/topic/chart/1', this.response);
-        //send data
-        stomp.send('/topic/chart/3',{"data":"data"});
-        //unsubscribe
-        this.subscription.unsubscribe();
-        //disconnect
-        stomp.disconnect().then(() => {
-          console.log( 'Connection closed' )
-        })
-      });*/
-    
-    }
-    
-    //response
-    public response = (data) => {
-      console.log(data)
-    }
-
+  constructor(private pushNotificationsService: PushNotificationsService) {
+    console.log("trying to subscribe to ws");
+    this.ws = new $WebSocket("ws://localhost:8080/hackathon/counter");
+    this.ws.send("Hello");
+    this.ws.getDataStream().subscribe(
+      res => {
+          var art = JSON.parse(res.data);
+          this.pushNotificationsService.requestPermission();
+          this.pushNotificationsService.create(art.title ,  {
+            body: art.summary,
+            icon: 'http://eti2.e-monsite.com/medias/album/article-logo-1.png'
+          }
+        ).subscribe(
+            res => console.log(res),
+            err => console.log(err)
+          )
+      },
+      function(e) { console.log('Error: ' + e.message); },
+      function() { console.log('Completed'); }
+      );
+  }
 
   public brandPrimary = '#20a8d8';
   public brandSuccess = '#4dbd74';
