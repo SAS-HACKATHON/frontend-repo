@@ -19,17 +19,17 @@ export class SofnewsShowComponent {
 
   constructor(private router: Router,private route: ActivatedRoute,
     private articleService: ArticleService) {
-    this.sub = this.route.params.subscribe(params => {
-      this.articleID = +params['id'];
+    this.sub = this.route.params.subscribe(params => {console.log(params)
+      this.articleID = params['id'];
+
+      this.article = this.getArticleById(this.articleID);
+
     });
-
-    this.article = this.getArticleById(this.articleID);
-
 
   }
 
-  getArticleById(article: any) {
-    this.articleService.getArticleById(article.id).subscribe((obj) => {
+  getArticleById(id: any) { 
+    this.articleService.getArticleById(id).subscribe((obj) => {
       console.log(obj);
       this.article = obj;
     })

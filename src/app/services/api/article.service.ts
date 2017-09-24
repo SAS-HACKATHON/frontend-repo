@@ -1,3 +1,4 @@
+import { API_ARTICLES_BY_ID } from './../../constants/app.constants';
 import { Injectable } from '@angular/core';
 import { API_ARTICLES_BY_TYPE } from '../../constants/app.constants';
 import { ApiRequestService } from './api-request.service';
@@ -19,7 +20,7 @@ export class ArticleService {
 
   public getArticleById(id: number): any {
     const re = "{id}";
-    let url = API_ARTICLES_BY_TYPE;
+    let url = API_ARTICLES_BY_ID;
     url = url.replace(re,String(id));    
    return this.apiRequestService.get(url);
   }
