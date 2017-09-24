@@ -7,16 +7,12 @@ import { Http, Headers, Response, Request, RequestOptions, URLSearchParams,Reque
 export class ArticleService {
 
   constructor(private apiRequestService: ApiRequestService) {
-
   }
 
   public getArticleByType(type: string): any {
     const re = "{type}";
     let url = API_ARTICLES_BY_TYPE;
-    url = url.replace(re,type);
-
-    console.log(url);
-    
+    url = url.replace(re,type);    
    return this.apiRequestService.get(url);
   }
 }   

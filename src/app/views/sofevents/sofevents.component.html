@@ -1,3 +1,26 @@
-<div class="animated fadeIn">
-  Sof'Event place holder
-</div>
+
+  <div class="animated fadeIn">
+    
+        <!--/.row-->
+        <div class="row">
+    
+          <div  class="col-sm-6 col-md-4">
+            <div *ngFor="let article of articlesByType"  class="card text-white bg-primary">
+              <div class="card-header">
+                {{article.title}}
+              </div>
+              <div class="card-body">
+                {{article.summary}}  
+                   <footer>
+                    <em class="fa fa-user"></em> <cite title="Source Title"> {{article.user.firstName}} {{article.user.lastName}}</cite>
+                  </footer>
+              </div>
+            </div>
+          </div>
+          
+          
+        </div><!--/.row-->
+    
+        
+      </div>
+      

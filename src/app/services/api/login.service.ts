@@ -35,7 +35,7 @@ export class LoginService {
         let loginDataSubject:Subject<any> = new Subject<any>(); // Will use this subject to emit data that we want after ajax login attempt
         let loginInfoReturn:LoginInfoInStorage; // Object that we want to send back to Login Page
 
-        this.apiRequest.post('session', bodyData)
+        this.apiRequest.post('/session', bodyData)
             .subscribe(jsonResp => {
                 if (jsonResp !== undefined && jsonResp !== null && jsonResp.operationStatus === "SUCCESS"){
                     //Create a success object that we want to send back to login page
@@ -48,6 +48,7 @@ export class LoginService {
                             "email"      : jsonResp.item.emailAddress,
                             "displayName": jsonResp.item.firstName + " " + jsonResp.item.lastNameName,
                             "token"      : jsonResp.item.token,
+                            "role"      : jsonResp.item.role,
                         }
                     };
 

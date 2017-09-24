@@ -8,7 +8,7 @@ import { SofnewsRoutingModule } from './sofnews-routing.module';
   imports: [
     SofnewsRoutingModule,
     ChartsModule,
-    CommonModule
+    CommonModule  
   ],
   declarations: [ SofnewsComponent ]
 })

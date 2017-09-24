@@ -3,11 +3,10 @@ import { Router } from '@angular/router';
 import { ArticleService } from '../../services/api/article.service';
 
 @Component({
-  templateUrl: 'softech.component.html'
+  templateUrl: 'softech.component.html',
+  providers: [ArticleService]
 })
 export class SoftechComponent {
-
-
 
   articlesByType: any;
   constructor(private articleService: ArticleService) { 
@@ -15,7 +14,6 @@ export class SoftechComponent {
   }
 
    getArticlesByType(type: string) {
-     
      this.articleService.getArticleByType(type).subscribe((obj) => {
        this.articlesByType = obj;
      })

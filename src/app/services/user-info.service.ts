@@ -5,6 +5,7 @@ export interface UserInStorage{
     email:string;
     displayName:string;
     token:string;
+    role:string;
 }
 
 export interface LoginInfoInStorage{
