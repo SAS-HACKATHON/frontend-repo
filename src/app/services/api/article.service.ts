@@ -15,4 +15,15 @@ export class ArticleService {
     url = url.replace(re,type);    
    return this.apiRequestService.get(url);
   }
+
+
+  public getArticleById(id: number): any {
+    const re = "{id}";
+    let url = API_ARTICLES_BY_TYPE;
+    url = url.replace(re,String(id));    
+   return this.apiRequestService.get(url);
+  }
+
+
+
 }   

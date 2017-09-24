@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ArticleService } from '../../services/api/article.service';
+import { UserInfoService, LoginInfoInStorage } from '../../services/user-info.service';
 @Component({
   templateUrl: 'sofevents.component.html',
   providers: [ArticleService]
@@ -8,14 +9,40 @@ import { ArticleService } from '../../services/api/article.service';
 export class SofeventsComponent {
 
   articlesByType: any;
-  constructor(private articleService: ArticleService) { 
-    this. getArticlesByType("EVENT");
+  userInfo: any;
+  hasAcces: boolean = false;
+
+  constructor(private articleService: ArticleService, private userInfoService: UserInfoService) {
+    console.log('hello rfom componnst');
+    this.getArticlesByType("EVENT");
+    this.userInfo = this.userInfoService.getUserInfo();
+
+
   }
 
-   getArticlesByType(type: string) {
-     this.articleService.getArticleByType(type).subscribe((obj) => {
-       this.articlesByType = obj;
-     })
-   }
+  getArticlesByType(type: string) {
+    console.log("from component " + type);
+
+    this.articleService.getArticleByType(type).subscribe((obj) => {
+      console.log(obj);
+      this.articlesByType = obj;
+    })
+  }
+
+
+  public generate(index) {
+    let classcards = ['bg-primary', 'bg-danger', 'bg-warning', 'bg-info','bg-success'];
+    let i = index%4;
+    return  classcards[i];
+  }
+  hasAccess(article: any): boolean {
+    console.log(this.userInfo.userId);
+    console.log(article.user.id);
+    
+    if (this.userInfo.role == "ADMIN" || this.userInfo.userId == article.user.id) {
+      return true;
+    }
+    return false;
+  }
 
 }

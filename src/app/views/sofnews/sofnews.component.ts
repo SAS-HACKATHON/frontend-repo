@@ -23,14 +23,12 @@ export class SofnewsComponent {
 
   }
 
-  
 
   public generate(index) {
     let classcards = ['bg-primary', 'bg-danger', 'bg-warning', 'bg-info','bg-success'];
     let i = index%4;
     return  classcards[i];
   }
-
   getArticlesByType(type: string) {
     console.log("from component " + type);
 
