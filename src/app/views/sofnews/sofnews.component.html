@@ -27,7 +27,7 @@
                    <em class="fa fa-user"></em> <cite title="Source Title"> {{article.user.firstName}} {{article.user.lastName}}</cite>
 
                    <button type="button" class="btn btn-transparent p-0 float-right"
-                           routerLinkActive="active" [routerLink]="['/sofnews/show']">
+                           routerLinkActive="active" [routerLink]="['/sofnews/show/'+article.id]">
                       <i class="fa fa-eye"></i>
                   </button>
                  </footer>

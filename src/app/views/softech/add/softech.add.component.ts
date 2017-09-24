@@ -4,14 +4,15 @@ import { ArticleService } from '../../../services/api/article.service';
 
 
 @Component({
-  templateUrl: 'sofnews.add.component.html',
+  templateUrl: 'softech.add.component.html',
   providers: [ArticleService]
 })
 
-export class SofnewsAddComponent {
+export class SoftechAddComponent {
 
   articlesByType: any;
   constructor(private articleService: ArticleService) { 
+    console.log('hello rfom componnst'); 
   }
 
   public article;
