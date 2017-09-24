@@ -25,7 +25,7 @@ export class SofnewsComponent {
 
 
   public generate(index) {
-    let classcards = ['bg-primary', 'bg-danger', 'bg-warning', 'bg-info','bg-success'];
+    let classcards = ['bg-primary', 'bg-danger', 'bg-warning', 'bg-info','bg-success','bg-primary', 'bg-danger', 'bg-warning', 'bg-info','bg-success','bg-primary', 'bg-danger', 'bg-warning', 'bg-info','bg-success','bg-primary', 'bg-danger', 'bg-warning', 'bg-info','bg-success','bg-primary', 'bg-danger', 'bg-warning', 'bg-info','bg-success','bg-primary', 'bg-danger', 'bg-warning', 'bg-info','bg-success','bg-primary', 'bg-danger', 'bg-warning', 'bg-info','bg-success','bg-primary', 'bg-danger', 'bg-warning', 'bg-info','bg-success','bg-primary', 'bg-danger', 'bg-warning', 'bg-info','bg-success','bg-primary', 'bg-danger', 'bg-warning', 'bg-info','bg-success'];
     let i = index%4;
     return  classcards[i];
   }
