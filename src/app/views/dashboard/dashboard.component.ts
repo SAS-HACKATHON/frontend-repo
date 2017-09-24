@@ -1,3 +1,5 @@
+import { AppConfig } from './../../app-config';
+import { API_ALL_ARTICLES } from './../../constants/app.constants';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {$WebSocket, WebSocketSendMode} from 'angular2-websocket/angular2-websocket';
@@ -12,28 +14,26 @@ export class DashboardComponent implements OnInit {
   private ws : any;
   
   
-  constructor(private pushNotificationsService: PushNotificationsService) {
+  constructor(private pushNotificationsService: PushNotificationsService, private appConfig : AppConfig) {
     
     //slider
     let indexSlide = 0;
     function playSlides(){
-      console.log("amine");
+
       indexSlide = indexSlide +1;
       if(indexSlide==5){
         indexSlide = 1;
       }
       
-        setTimeout(()=>{    //<<<---    using ()=> syntax
-          playSlides();
-          (<HTMLImageElement>document.getElementById("imgSlide")).src = 'assets/img/slides/slide'+indexSlide+'.jpeg';
-        },3000);
+      setTimeout(()=>{
+        playSlides();
+        (<HTMLImageElement>document.getElementById("imgSlide")).src = 'assets/img/slides/slide'+indexSlide+'.jpeg';
+      },3000);
     }
     playSlides();
 
-
-    console.log("trying to subscribe to ws");
-    this.ws = new $WebSocket("ws://localhost:8080/hackathon/counter");
-    this.ws.send("Hello");
+    this.ws = new $WebSocket(appConfig.baseApiPathWebSocket + "counter");
+    //this.ws.send("Hello");
     this.ws.getDataStream().subscribe(
       res => {
           var art = JSON.parse(res.data);

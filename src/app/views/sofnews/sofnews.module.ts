@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { SofnewsComponent } from './sofnews.component';
 import { SofnewsAddComponent } from './add/sofnews.add.component';
@@ -8,6 +9,8 @@ import { SofnewsRoutingModule } from './sofnews-routing.module';
 
 @NgModule({
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     SofnewsRoutingModule,
     ChartsModule,
     CommonModule
