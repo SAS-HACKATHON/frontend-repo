@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { LoginService } from 'app/services/api/login.service';
+import { LoginService } from '../../services/api/login.service';
 
 @Component({
   templateUrl: 'login.component.html'
