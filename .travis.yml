@@ -6,7 +6,7 @@ cache:
   directories:
      - ./node_modules
 script:
-  - ng build --prod --output-hashing=none
+  - ng build --prod --output-hashing=none -bh hackathon-client
 deploy:
   - provider: pages
     local_dir: dist
