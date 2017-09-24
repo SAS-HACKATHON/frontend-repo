@@ -12,7 +12,7 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'home',
     pathMatch: 'full',
   },
   {
@@ -24,7 +24,7 @@ export const routes: Routes = [
     },
     children: [
       {
-        path: 'dashboard',
+        path: 'home',
         loadChildren: './views/dashboard/dashboard.module#DashboardModule'
       },
       {
