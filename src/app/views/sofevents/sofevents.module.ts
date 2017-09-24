@@ -6,7 +6,6 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { CommonModule } from '@angular/common';
 import { SofeventsComponent } from './sofevents.component';
 import { SofeventsRoutingModule } from './sofevents-routing.module';
-import { HorizontalTimelineComponent } from "./horizontal-timeline/horizontal-timeline.component";
 
 @NgModule({
   imports: [
@@ -19,6 +18,6 @@ import { HorizontalTimelineComponent } from "./horizontal-timeline/horizontal-ti
     SofeventsComponent,
     SofeventsAddComponent,
     SofeventsShowComponent,
-    HorizontalTimelineComponent ]
+     ]
 })
 export class SofeventsModule { }

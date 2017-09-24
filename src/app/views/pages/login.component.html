@@ -7,7 +7,7 @@
             <div class="card-body" >
             <div *ngIf="errMsg" style="color:indianred; font-weight: bold">{{errMsg}}</div>
             <form name="form" (ngSubmit)="login()" #f="ngForm" novalidate>
-              <h1>Login</h1>
+              <h1>Authentification</h1>
               <p class="text-muted">Sign In to your account</p>
               <div class="input-group mb-3">
                 <span class="input-group-addon"><i class="icon-user"></i></span>
@@ -19,10 +19,10 @@
               </div>
               <div class="row">
                 <div class="col-6">
-                  <button type="submit" class="btn btn-primary px-4">Login</button>
+                  <button type="submit" class="btn btn-primary px-4">S'authentifier</button>
                 </div>
                 <div class="col-6 text-right">
-                  <button type="button" class="btn btn-link px-0">Forgot password?</button>
+                  <button type="button" class="btn btn-link px-0"></button>
                 </div>
               </div>
             </form>
