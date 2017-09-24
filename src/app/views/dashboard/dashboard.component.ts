@@ -10,9 +10,27 @@ export class DashboardComponent implements OnInit {
 
 
   private ws : any;
-  public counter = 0;
-
+  
+  
   constructor(private pushNotificationsService: PushNotificationsService) {
+    
+    //slider
+    let indexSlide = 0;
+    function playSlides(){
+      console.log("amine");
+      indexSlide = indexSlide +1;
+      if(indexSlide==5){
+        indexSlide = 1;
+      }
+      
+        setTimeout(()=>{    //<<<---    using ()=> syntax
+          playSlides();
+          (<HTMLImageElement>document.getElementById("imgSlide")).src = 'assets/img/slides/slide'+indexSlide+'.jpeg';
+        },3000);
+    }
+    playSlides();
+
+
     console.log("trying to subscribe to ws");
     this.ws = new $WebSocket("ws://localhost:8080/hackathon/counter");
     this.ws.send("Hello");
