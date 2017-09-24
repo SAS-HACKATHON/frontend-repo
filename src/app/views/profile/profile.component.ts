@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PushNotificationsService } from 'angular2-notifications';
+import { UserInfoService } from 'app/services/user-info.service';
 
 @Component({
   templateUrl: 'profile.component.html'
@@ -11,14 +12,19 @@ export class ProfileComponent implements OnInit {
   userIDO: string;
   private sub: any;
 
+  userInfo: string;
+
   constructor(
     private pushNotificationsService: PushNotificationsService ,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private userInfoService: UserInfoService
   ) {
     this.userID = 7;
   }
   ngOnInit(): void {
+
+    this.userInfo='JSON info => '+ this.userInfoService.getUserInfo();
 
     this.pushNotificationsService.requestPermission();
 
