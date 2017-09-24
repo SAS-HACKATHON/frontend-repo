@@ -11,8 +11,6 @@ export class ArticleService {
   }
 
   public getArticleByType(type: string): any {
-      console.log("from service "+type);
-      
     const re = "{type}";
     let url = API_ARTICLES_BY_TYPE;
     url = url.replace(re,type);
