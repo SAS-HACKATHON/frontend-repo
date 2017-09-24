@@ -4,6 +4,7 @@ import { Routes,
 
 import { SofnewsComponent } from './sofnews.component';
 import { SofnewsAddComponent } from './add/sofnews.add.component';
+import { SofnewsShowComponent } from './show/sofnews.show.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path : 'add',
     component: SofnewsAddComponent,
+  },
+  {
+    path : 'show',
+    component: SofnewsShowComponent,
   }
 ];
 

@@ -66,6 +66,7 @@ import { ProductService } from '../app/services/api/product.service';
 import { CustomerService } from '../app/services/api/customer.service';
 import { EmployeeService } from '../app/services/api/employee.service';
 import { AppConfig } from '../app/app-config';
+import {  TruncatePipe }   from './TruncatePipe';
 
 @NgModule({
   imports: [
@@ -80,6 +81,7 @@ import { AppConfig } from '../app/app-config';
   ],
   declarations: [
     AppComponent,
+    TruncatePipe,
     ...APP_CONTAINERS,
     ...APP_COMPONENTS,
     ...APP_DIRECTIVES
