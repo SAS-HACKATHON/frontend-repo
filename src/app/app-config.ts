@@ -16,7 +16,8 @@ export class AppConfig {
     public apiPort:string = "8080";
     public apiProtocol:string;
     public apiHostName:string;
-    public baseApiPath:string= "http://hacksas.herokuapp.com/hackathon/api";
+	public baseApiPath:string = http://hackathon-hackathon.193b.starter-ca-central-1.openshiftapps.com/hackathon/api
+    // public baseApiPath:string= "http://hacksas.herokuapp.com/hackathon/api";
 
     constructor(){
         if (this.apiProtocol===undefined){
